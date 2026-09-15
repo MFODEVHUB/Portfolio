@@ -284,6 +284,7 @@
       border-radius: 3px;
     }
     .badge.wip { background: #fff3cd; color: #8a5c00; }
+    .badge.publishing { background: #cfe2ff; color: #084298; }
     .badge.done { background: #d4edda; color: #1a6130; }
 
     .project-excerpt {
@@ -758,6 +759,24 @@
           <span class="project-arrow">↗</span>
         </div>
 
+        <div class="project-card" data-project="checkout">
+          <div class="project-icon"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDggMTA4Ij4KICAKICAA8cmVjdCB3aWR0aD0iMTA4IiBoZWlnaHQ9IjEwOCIgZmlsbD0iI0ZGRkZGRiIvPgogIDxwYXRoIGZpbGw9IiNGRjNCNEUiIGQ9Ik01NCw1NCBtLTMwLDAgYTMwLDMwIDAgMSwwIDYwLDAgYTMwLDMwIDAgMSwwIC02MCwwIi8+CiAgPHBhdGggZmlsbD0iI0ZGQzkzQyIgZD0iTTU0LDU0IG0tMjIsMCBhMjIsMjIgMCAxLDAgNDQsMCBhMjIsMjIgMCAxLDAgLTQ0LDAiLz4KICAKICAA8cGF0aCBmaWxsPSIjMzNEMTdBIiBkPSJNNTQsNTQgbS0xNCwwIGExNCwxNCAwIDEsMCAyOCwwIGExNCwxNCAwIDEsMCAtMjgsMCIvPgogIDxwYXRoIGZpbGw9IiNGRjNCNEUiIGQ9Ik01NCw1NCBtLTYsMCBhNiw2IDAgMSwwIDEyLDAgYTYsNiAwIDEsMCAtMTIsMCIvPgo8L3N2Zz4=" alt="Checkout" style="width:100%;height:100%;object-fit:cover;border-radius:12px;"></div>
+          <div>
+            <div class="project-top">
+              <span class="project-name">Checkout</span>
+              <span class="badge done">Terminé</span>
+            </div>
+            <p class="project-excerpt">Suivi de score pour les fléchettes — 5 modes de jeu, bots IA et statistiques détaillées.</p>
+            <div class="project-tags-mini">
+              <span class="tag">Android</span>
+              <span class="tag">Jetpack Compose</span>
+              <span class="tag">Room</span>
+              <span class="tag">Lottie</span>
+            </div>
+          </div>
+          <span class="project-arrow">↗</span>
+        </div>
+
       </div>
     </div>
   </section>
@@ -855,8 +874,8 @@
       mytravels: {
         name: "MyTravels",
         icon: "🌍",
-        status: "wip",
-        statusLabel: "En cours",
+        status: "publishing",
+        statusLabel: "En cours de publication",
         desc: "Carte interactive de nos visites du monde. Marque les pays et villes visités, visualise tes aventures sur une carte mondiale interactive et garde une trace de toutes tes explorations. Simple, visuel et pensé pour les voyageurs.",
         tags: ["Android", "Jetpack Compose", "Room", "Flow", "Material 3"],
         links: [
@@ -885,6 +904,19 @@
         statusLabel: "En cours",
         desc: "Application Android de gestion de dépenses partagées conçue pour fonctionner 100 % offline. Créez des événements, ajoutez les participants et les dépenses, et laissez l'application calculer automatiquement qui doit quoi à qui en minimisant le nombre de virements. Reconnaissance de texte ML Kit intégrée pour scanner les tickets de caisse.",
         tags: ["Android", "Jetpack Compose", "ML Kit", "Room", "DataStore"],
+        links: [
+          { icon: "🤖", label: "Google Play Store", href: null },
+          { icon: "🍎", label: "App Store",          href: null },
+          { icon: "📦", label: "Télécharger l'APK",  href: null },
+        ]
+      },
+      checkout: {
+        name: "Checkout",
+        icon: null,
+        status: "done",
+        statusLabel: "Terminé",
+        desc: "Application de suivi de score pour les fléchettes supportant 5 modes de jeu classiques : X01, Cricket, Around the Clock, Shanghai et Killer. Jusqu'à 8 joueurs avec bots IA, statistiques détaillées par mode et historique complet des parties.",
+        tags: ["Android", "Jetpack Compose", "Room", "Lottie", "Material 3"],
         links: [
           { icon: "🤖", label: "Google Play Store", href: null },
           { icon: "🍎", label: "App Store",          href: null },
