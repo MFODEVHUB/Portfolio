@@ -658,9 +658,9 @@
         const hasLinks = Object.keys(p.links).length > 0;
         const linksHtml = Object.entries(p.links).map(([type, url]) => {
           const icons = {
-            playstore: '🎯',
-            website: '🌐',
-            github: '🐙'
+            playstore: '<img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/googleplay.svg" alt="Play Store" style="width:1em; height:1em; filter:invert(1);">',
+            website: '<img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/globe.svg" alt="Website" style="width:1em; height:1em; filter:invert(1);">',
+            github: '<img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/github.svg" alt="GitHub" style="width:1em; height:1em; filter:invert(1);">'
           };
           const labels = { playstore: 'Play Store', website: 'Website', github: 'GitHub' };
           return `<a href="${url}" target="_blank" class="project-link" style="--project-color: ${p.color};">${icons[type] || '🔗'} ${labels[type] || type}</a>`;
