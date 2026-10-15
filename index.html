@@ -590,21 +590,10 @@
         color: '#56b867',
         status: 'publishing',
         statusLabel: 'En cours de publication',
-        desc: 'Carnet de voyage interactif pour explorer le monde. Régions, villes, défis et historique de vos aventures.',
-        tags: ['Android', 'Kotlin', 'Maps', 'Room', 'Material 3'],
+        desc: 'Carnet de voyage interactif pour explorer le monde. Régions, villes, défis et historique de vos aventures. App Android + Web.',
+        tags: ['Android', 'Kotlin', 'Web', 'Svelte', 'Maps', 'Material 3'],
         image: 'logo-mytravels.png',
-        links: { playstore: 'https://play.google.com/store/apps/details?id=com.mfodevhub.mytravels' }
-      },
-      {
-        id: 'mytravelsweb',
-        name: 'MyTravels Web',
-        color: '#56b867',
-        status: 'done',
-        statusLabel: 'Disponible',
-        desc: 'Companion web pour MyTravels. Accédez à vos régions et explorez depuis votre navigateur. PWA Svelte.',
-        tags: ['Web', 'Svelte', 'PWA', 'Cloudflare'],
-        image: 'logo-mytravels.png',
-        links: { website: 'https://mytravels.mfodevhub.com' }
+        links: { playstore: 'https://play.google.com/store/apps/details?id=com.mfodevhub.mytravels', website: 'https://mytravels.mfodevhub.com' }
       },
       {
         id: 'lieudit',
@@ -612,19 +601,8 @@
         color: '#D4845E',
         status: 'wip',
         statusLabel: 'En cours',
-        desc: 'Carnet personnel de lieux. Sauvegardez vos endroits favoris, vos souvenirs et vos découvertes.',
-        tags: ['Android', 'Kotlin', 'Places', 'Maps'],
-        image: 'logo-lieudit.png',
-        links: {}
-      },
-      {
-        id: 'lieuditweb',
-        name: 'Lieudit Web',
-        color: '#D4845E',
-        status: 'wip',
-        statusLabel: 'En cours',
-        desc: 'Companion web pour Lieudit. Explorez vos lieux sauvegardés depuis votre navigateur. PWA Svelte.',
-        tags: ['Web', 'Svelte', 'Maps', 'Cloudflare'],
+        desc: 'Carnet personnel de lieux. Sauvegardez vos endroits favoris, vos souvenirs et vos découvertes. App Android + Web.',
+        tags: ['Android', 'Kotlin', 'Web', 'Svelte', 'Places', 'Maps'],
         image: 'logo-lieudit.png',
         links: { website: 'https://lieudit.mfodevhub.com' }
       },
@@ -679,7 +657,7 @@
       grid.innerHTML = projects.map(p => {
         const hasLinks = Object.keys(p.links).length > 0;
         const linksHtml = Object.entries(p.links).map(([type, url]) => {
-          const icons = { playstore: '🎮', website: '🌐', github: '💻' };
+          const icons = { playstore: '📱', website: '🌐', github: '💻' };
           const labels = { playstore: 'Play Store', website: 'Website', github: 'GitHub' };
           return `<a href="${url}" target="_blank" class="project-link" style="--project-color: ${p.color};">${icons[type] || '🔗'} ${labels[type] || type}</a>`;
         }).join('');
