@@ -141,7 +141,7 @@
       font-family: 'Syne', sans-serif;
       font-size: clamp(3.5rem, 10vw, 7rem);
       font-weight: 800;
-      line-height: 0.95;
+      line-height: 1.05;
       letter-spacing: -0.04em;
       margin-bottom: 2.5rem;
     }
@@ -349,6 +349,33 @@
     .project-card:hover { color: var(--project-color); }
     .project-card:hover .project-image { filter: brightness(1.05); }
 
+    .project-links {
+      margin-top: 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.6rem 1rem;
+      border: 1.5px solid currentColor;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--project-color, var(--text));
+      transition: all 0.2s;
+      background: transparent;
+    }
+
+    .project-link:hover {
+      background: var(--project-color, var(--text));
+      color: #fff;
+    }
+
     /* ── FOOTER / SUPPORT ── */
     #support { border-top: 1px solid var(--line); }
 
@@ -478,6 +505,7 @@
       <li><a href="#about">À propos</a></li>
       <li><a href="#projects">Projets</a></li>
       <li><a href="#support" class="nav-support">Me soutenir</a></li>
+      <li><a href="https://github.com/MFODEVHUB" target="_blank" title="GitHub">💻</a></li>
     </ul>
   </nav>
 
@@ -575,19 +603,6 @@
     // Projets avec logos en SVG base64
     const projects = [
       {
-        id: 'myscooter',
-        name: 'MyScooter',
-        color: '#00D4FF',
-        status: 'wip',
-        statusLabel: 'En cours',
-        desc: 'Application de contrôle Bluetooth pour trottinette électrique. Suivi de la batterie, vitesse, et données en temps réel.',
-        tags: ['Android', 'Kotlin', 'BLE', 'Jetpack Compose'],
-        icon: '🛴',
-        links: {
-          playstore: 'https://play.google.com/store/apps/details?id=com.mfodevhub.myscooter'
-        }
-      },
-      {
         id: 'mytravels',
         name: 'MyTravels',
         color: '#56b867',
@@ -614,39 +629,6 @@
         }
       },
       {
-        id: 'unifiedmail',
-        name: 'UnifiedMail',
-        color: '#4B5563',
-        status: 'wip',
-        statusLabel: 'En cours',
-        desc: 'Gestionnaire d\'email unifié. Gérez plusieurs comptes en un seul endroit, de façon simple et efficace.',
-        tags: ['Android', 'Kotlin', 'Email', 'IMAP'],
-        icon: '✉️',
-        links: {}
-      },
-      {
-        id: 'checkout',
-        name: 'Checkout',
-        color: '#D94A4A',
-        status: 'wip',
-        statusLabel: 'En cours',
-        desc: 'Compteur de points pour les jeux de fléchettes. Plusieurs modes : X01, Cricket, ATC, Shanghai, Killer.',
-        tags: ['Android', 'Kotlin', 'Jeux', 'Scores'],
-        icon: '🎯',
-        links: {}
-      },
-      {
-        id: 'mytrips',
-        name: 'MyTrips',
-        color: '#60A5FA',
-        status: 'wip',
-        statusLabel: 'En cours',
-        desc: 'Planificateur de voyage personnel pour l\'Asie. Itinéraires, points d\'intérêt, notes et historique de voyage.',
-        tags: ['Android', 'Kotlin', 'Travel', 'Maps'],
-        icon: '✈️',
-        links: {}
-      },
-      {
         id: 'lieudit',
         name: 'Lieudit',
         color: '#D4845E',
@@ -669,6 +651,52 @@
         links: {
           website: 'https://lieudit.mfodevhub.com'
         }
+      },
+      {
+        id: 'checkout',
+        name: 'Checkout',
+        color: '#D94A4A',
+        status: 'wip',
+        statusLabel: 'En cours',
+        desc: 'Compteur de points pour les jeux de fléchettes. Plusieurs modes : X01, Cricket, ATC, Shanghai, Killer.',
+        tags: ['Android', 'Kotlin', 'Jeux', 'Scores'],
+        icon: '🎯',
+        links: {}
+      },
+      {
+        id: 'myscooter',
+        name: 'MyScooter',
+        color: '#00D4FF',
+        status: 'wip',
+        statusLabel: 'En cours',
+        desc: 'Application de contrôle Bluetooth pour trottinette électrique. Suivi de la batterie, vitesse, et données en temps réel.',
+        tags: ['Android', 'Kotlin', 'BLE', 'Jetpack Compose'],
+        icon: '🛴',
+        links: {
+          playstore: 'https://play.google.com/store/apps/details?id=com.mfodevhub.myscooter'
+        }
+      },
+      {
+        id: 'mytrips',
+        name: 'MyTrips',
+        color: '#60A5FA',
+        status: 'wip',
+        statusLabel: 'En cours',
+        desc: 'Planificateur de voyage personnel pour l\'Asie. Itinéraires, points d\'intérêt, notes et historique de voyage.',
+        tags: ['Android', 'Kotlin', 'Travel', 'Maps'],
+        icon: '✈️',
+        links: {}
+      },
+      {
+        id: 'unifiedmail',
+        name: 'UnifiedMail',
+        color: '#4B5563',
+        status: 'wip',
+        statusLabel: 'En cours',
+        desc: 'Gestionnaire d\'email unifié. Gérez plusieurs comptes en un seul endroit, de façon simple et efficace.',
+        tags: ['Android', 'Kotlin', 'Email', 'IMAP'],
+        icon: '✉️',
+        links: {}
       }
     ];
 
@@ -683,8 +711,13 @@
             website: '🌐',
             github: '💻'
           };
-          return `<a href="${url}" target="_blank" style="color: ${p.color}; text-decoration: none; font-size: 0.9rem; font-weight: 500;">
-            ${icons[type] || '🔗'} ${type === 'playstore' ? 'Play Store' : type === 'website' ? 'Website' : 'GitHub'}
+          const labels = {
+            playstore: 'Play Store',
+            website: 'Website',
+            github: 'GitHub'
+          };
+          return `<a href="${url}" target="_blank" class="project-link" style="--project-color: ${p.color};">
+            ${icons[type] || '🔗'} ${labels[type] || type}
           </a>`;
         }).join('');
 
@@ -700,7 +733,7 @@
               <div class="project-tags">
                 ${p.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
               </div>
-              ${hasLinks ? `<div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem;">${linksHtml}</div>` : ''}
+              ${hasLinks ? `<div class="project-links">${linksHtml}</div>` : ''}
             </div>
           </div>
         `;
