@@ -657,7 +657,11 @@
       grid.innerHTML = projects.map(p => {
         const hasLinks = Object.keys(p.links).length > 0;
         const linksHtml = Object.entries(p.links).map(([type, url]) => {
-          const icons = { playstore: '📱', website: '🌐', github: '💻' };
+          const icons = {
+            playstore: '<svg style="width:1em; height:1em; vertical-align:-2px;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3,2 L21,12 L3,22 Z" fill="#FF3B30"/><path d="M3,2 L12,12 L3,22 Z" fill="#34C759"/><path d="M12,12 L21,2 L21,22 Z" fill="#007AFF"/></svg>',
+            website: '🌐',
+            github: '💻'
+          };
           const labels = { playstore: 'Play Store', website: 'Website', github: 'GitHub' };
           return `<a href="${url}" target="_blank" class="project-link" style="--project-color: ${p.color};">${icons[type] || '🔗'} ${labels[type] || type}</a>`;
         }).join('');
