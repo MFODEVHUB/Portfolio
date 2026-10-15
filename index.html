@@ -85,7 +85,7 @@
       align-items: center;
       padding-top: 5rem;
       position: relative;
-      overflow: hidden;
+      overflow: visible;
     }
 
     #hero::before {
@@ -141,12 +141,13 @@
       font-family: 'Syne', sans-serif;
       font-size: clamp(3.5rem, 10vw, 7rem);
       font-weight: 800;
-      line-height: 1.05;
+      line-height: 1.15;
       letter-spacing: -0.04em;
       margin-bottom: 2.5rem;
+      overflow: visible;
     }
 
-    .hero-title .line { display: block; overflow: hidden; }
+    .hero-title .line { display: block; overflow: visible; }
     .hero-title .line span {
       display: block;
       opacity: 0;
@@ -265,12 +266,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 3rem;
       overflow: hidden;
       position: relative;
     }
 
-    .project-image img {
+    .project-image svg {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -338,17 +338,6 @@
       border-radius: 3px;
     }
 
-    /* Couleurs dynamiques par projet */
-    .project-card[data-color="#00D4FF"] { --project-color: #00D4FF; }
-    .project-card[data-color="#56b867"] { --project-color: #56b867; }
-    .project-card[data-color="#4B5563"] { --project-color: #4B5563; }
-    .project-card[data-color="#D94A4A"] { --project-color: #D94A4A; }
-    .project-card[data-color="#60A5FA"] { --project-color: #60A5FA; }
-    .project-card[data-color="#D4845E"] { --project-color: #D4845E; }
-
-    .project-card:hover { color: var(--project-color); }
-    .project-card:hover .project-image { filter: brightness(1.05); }
-
     .project-links {
       margin-top: 1.25rem;
       display: flex;
@@ -375,6 +364,17 @@
       background: var(--project-color, var(--text));
       color: #fff;
     }
+
+    /* Couleurs dynamiques par projet */
+    .project-card[data-color="#00D4FF"] { --project-color: #00D4FF; }
+    .project-card[data-color="#56b867"] { --project-color: #56b867; }
+    .project-card[data-color="#4B5563"] { --project-color: #4B5563; }
+    .project-card[data-color="#D94A4A"] { --project-color: #D94A4A; }
+    .project-card[data-color="#60A5FA"] { --project-color: #60A5FA; }
+    .project-card[data-color="#D4845E"] { --project-color: #D4845E; }
+
+    .project-card:hover { color: var(--project-color); }
+    .project-card:hover .project-image { filter: brightness(1.05); }
 
     /* ── FOOTER / SUPPORT ── */
     #support { border-top: 1px solid var(--line); }
@@ -600,7 +600,7 @@
   </footer>
 
   <script>
-    // Projets avec logos en SVG base64
+    // Projets avec logos SVG
     const projects = [
       {
         id: 'mytravels',
@@ -610,7 +610,7 @@
         statusLabel: 'En cours de publication',
         desc: 'Carnet de voyage interactif pour explorer le monde. Régions, villes, défis et historique de vos aventures.',
         tags: ['Android', 'Kotlin', 'Maps', 'Room', 'Material 3'],
-        icon: '🗺️',
+        svg: '<svg viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg"><rect fill="#1F9B78" width="108" height="108"/><circle cx="54" cy="54" r="35" fill="#FFFFFF" opacity="0.9"/><circle cx="54" cy="54" r="28" fill="#56b867" opacity="0.7"/><path d="M40,54 L50,64 L68,46" stroke="#56b867" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>',
         links: {
           playstore: 'https://play.google.com/store/apps/details?id=com.mfodevhub.mytravels'
         }
@@ -623,7 +623,7 @@
         statusLabel: 'Disponible',
         desc: 'Companion web pour MyTravels. Accédez à vos régions et explorez depuis votre navigateur. PWA Svelte.',
         tags: ['Web', 'Svelte', 'PWA', 'Cloudflare'],
-        icon: '🌐',
+        svg: '<svg viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg"><rect fill="#1F9B78" width="108" height="108"/><circle cx="54" cy="54" r="35" fill="#FFFFFF" opacity="0.9"/><circle cx="54" cy="54" r="28" fill="#56b867" opacity="0.7"/><path d="M40,54 L50,64 L68,46" stroke="#56b867" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>',
         links: {
           website: 'https://mytravels.mfodevhub.com'
         }
@@ -636,7 +636,7 @@
         statusLabel: 'En cours',
         desc: 'Carnet personnel de lieux. Sauvegardez vos endroits favoris, vos souvenirs et vos découvertes.',
         tags: ['Android', 'Kotlin', 'Places', 'Maps'],
-        icon: '📍',
+        svg: '<svg viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg"><rect fill="#FFF1ED" width="108" height="108"/><rect x="30" y="26" width="12" height="36" fill="#FFC24D"/><rect x="48" y="26" width="12" height="36" fill="#FFC24D"/><polygon points="54,62 44,62 44,72 64,72 64,62" fill="#FFC24D"/><circle cx="54" cy="52" r="8" fill="#D4845E"/></svg>',
         links: {}
       },
       {
@@ -647,7 +647,7 @@
         statusLabel: 'En cours',
         desc: 'Companion web pour Lieudit. Explorez vos lieux sauvegardés depuis votre navigateur. PWA Svelte.',
         tags: ['Web', 'Svelte', 'Maps', 'Cloudflare'],
-        icon: '🌍',
+        svg: '<svg viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg"><rect fill="#FFF1ED" width="108" height="108"/><rect x="30" y="26" width="12" height="36" fill="#FFC24D"/><rect x="48" y="26" width="12" height="36" fill="#FFC24D"/><polygon points="54,62 44,62 44,72 64,72 64,62" fill="#FFC24D"/><circle cx="54" cy="52" r="8" fill="#D4845E"/></svg>',
         links: {
           website: 'https://lieudit.mfodevhub.com'
         }
@@ -660,7 +660,7 @@
         statusLabel: 'En cours',
         desc: 'Compteur de points pour les jeux de fléchettes. Plusieurs modes : X01, Cricket, ATC, Shanghai, Killer.',
         tags: ['Android', 'Kotlin', 'Jeux', 'Scores'],
-        icon: '🎯',
+        svg: '<svg viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg"><rect fill="#0B0B0F" width="108" height="108"/><circle cx="54" cy="54" r="30" fill="#FF3B4E"/><circle cx="54" cy="54" r="22" fill="#FFC93C"/><circle cx="54" cy="54" r="14" fill="#33D17A"/><circle cx="54" cy="54" r="6" fill="#FF3B4E"/></svg>',
         links: {}
       },
       {
@@ -671,7 +671,7 @@
         statusLabel: 'En cours',
         desc: 'Application de contrôle Bluetooth pour trottinette électrique. Suivi de la batterie, vitesse, et données en temps réel.',
         tags: ['Android', 'Kotlin', 'BLE', 'Jetpack Compose'],
-        icon: '🛴',
+        svg: '<svg viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg"><rect fill="#0D1117" width="108" height="108"/><g transform="translate(54,54)" fill="#00D4FF"><circle cx="-8" cy="2" r="4"/><circle cx="8" cy="2" r="4"/><rect x="-12" y="0" width="24" height="3" rx="1"/><polygon points="0,-8 -6,6 6,6"/></g></svg>',
         links: {
           playstore: 'https://play.google.com/store/apps/details?id=com.mfodevhub.myscooter'
         }
@@ -684,7 +684,7 @@
         statusLabel: 'En cours',
         desc: 'Planificateur de voyage personnel pour l\'Asie. Itinéraires, points d\'intérêt, notes et historique de voyage.',
         tags: ['Android', 'Kotlin', 'Travel', 'Maps'],
-        icon: '✈️',
+        svg: '<svg viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg"><rect fill="#F9FAFB" width="108" height="108"/><circle cx="54" cy="54" r="28" fill="#60A5FA"/><circle cx="54" cy="54" r="18" fill="#1F2937"/><circle cx="54" cy="54" r="8" fill="#F9FAFB"/></svg>',
         links: {}
       },
       {
@@ -695,7 +695,7 @@
         statusLabel: 'En cours',
         desc: 'Gestionnaire d\'email unifié. Gérez plusieurs comptes en un seul endroit, de façon simple et efficace.',
         tags: ['Android', 'Kotlin', 'Email', 'IMAP'],
-        icon: '✉️',
+        svg: '<svg viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg"><rect fill="#1A73E8" width="108" height="108"/><rect x="24" y="32" width="60" height="44" rx="2" fill="#FFFFFF"/><polygon points="54,50 30,34 78,34" fill="#1A73E8"/><polyline points="30,34 54,50 78,34" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>',
         links: {}
       }
     ];
@@ -723,7 +723,7 @@
 
         return `
           <div class="project-card reveal" data-color="${p.color}">
-            <div class="project-image">${p.icon}</div>
+            <div class="project-image">${p.svg}</div>
             <div class="project-content">
               <div class="project-top">
                 <span class="project-name">${p.name}</span>
